@@ -1,0 +1,27 @@
+<h3>Create Your Account Now</h3>
+
+<div class="content">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="fields">
+      <strong>Your Information</strong>
+      <%= f.text_field :first_name, autofocus: true, placeholder: "First Name", :class => "form-control" %>
+      <%= f.text_field :last_name, placeholder: "Last Name", :class => "form-control" %>
+      <%= f.text_field :email, placeholder: "Email", :class => "form-control" %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Password", :class => "form-control"  %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password", :class => "form-control" %>
+    </div>
+
+    <div class="signup">
+      <%= f.submit "Create my account", :class => "btn btn-success btn-lg" %>
+    </div>
+    <div class="info text-center">
+      Already have an account?
+      <%= link_to "Sign in here.", new_user_session_path %>
+    </div>
+  <% end %>
+</div>

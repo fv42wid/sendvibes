@@ -14,14 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap/bootstrap.min
-//= require jquery.flot/jquery.flot
-//= require jquery.flot/jquery.flot.time
-//= require jquery.flot/jquery.flot.categories
-//= require jquery.flot/jquery.flot.tooltip
-//= require messenger/messenger.min
-//= require messenger/messenger-theme-flat
-//= require moment.min
+//= require jquery.flot/jquery.flot                                            
+//= require jquery.flot/jquery.flot.time                                       
+//= require jquery.flot/jquery.flot.categories                                 
+//= require jquery.flot/jquery.flot.tooltip                                    
+//= require messenger/messenger.min                                            
+//= require messenger/messenger-theme-flat                                     
+//= require moment.min   
 //= require_directory ../../../vendor/assets/javascripts/.
-
 //= require theme
-//= require_directory ./pages/.
+//= require_directory ./pages/. 
+//= require_tree .
