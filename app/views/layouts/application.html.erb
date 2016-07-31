@@ -15,32 +15,46 @@
 <% end %>
   <div id="wrapper">
     <div id="sidebar-default" class="main-sidebar">
-      <div class="current-user">
-	<a href="index.html" class="name">
-	  <img class="avatar" src="images/avatars/1.jpg" />
-	  <span>
-	    John Smith
-	    <i class="fa fa-chevron-down"></i>
+      <% if user_signed_in? %>
+        <div class="current-user">
+	  <a href="index.html" class="name">
+	    <img class="avatar" src="images/avatars/1.jpg" />
+	    <span>
+	      <%= current_user.first_name %>
+	      <i class="fa fa-chevron-down"></i>
 	    </span>
 	  </a>
-	<ul class="menu">
-	  <li>
-	    <a href="account-profile.html">Account settings</a>
+	  <ul class="menu">
+	    <li>
+	      <a href="account-profile.html">Account settings</a>
 	    </li>
-	  <li>
-	    <a href="account-billing.html">Billing</a>
+	    <li>
+	      <a href="account-notifications.html">Notifications</a>
 	    </li>
-	  <li>
-	    <a href="account-notifications.html">Notifications</a>
+	    <li>
+	      <a href="account-support.html">Help / Support</a>
 	    </li>
-	  <li>
-	    <a href="account-support.html">Help / Support</a>
-	    </li>
-	  <li>
-	    <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+	    <li>
+	      <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
 	    </li>
 	  </ul>
 	</div>
+      <% else %>
+        <div class="current-user">
+	  <a href="<%= root_path %>" class="name">
+	    <img class="avatar" src="images/avatars/1.jpg">
+	    <span>
+	      Vibe Tribe
+	      <i class="fa fa-chevron-down"></i>
+	    </span>
+	  </a>
+	  <ul class="menu">
+	    <li><%= link_to "Sign Up", new_user_registration_path %></li>
+	    <li><%= link_to "Log In", new_user_session_path %></li>
+	    <li><a href="#">Help / Support</a></li>
+	  </ul>
+	</div>
+      <% end %>
       <div class="menu-section">
 	<h3>General</h3>
 	<ul>
