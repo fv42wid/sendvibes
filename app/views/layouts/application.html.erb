@@ -8,7 +8,7 @@
     <%= csrf_meta_tags %>
   </head>
 
-<% if request.path == '/users/sign_up' %>
+<% if request.path == '/users/sign_up' || '/users/sign_in' %>
 <body id="signup" class="clear">
 <% else %>
 <body id="dashboard">
