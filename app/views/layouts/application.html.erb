@@ -18,7 +18,7 @@
       <% if user_signed_in? %>
         <div class="current-user">
 	  <a href="index.html" class="name">
-	    <img class="avatar" src="images/avatars/1.jpg" />
+	    <%= image_tag '/1.jpg', :class => 'avatar' %>
 	    <span>
 	      <%= current_user.first_name %>
 	      <i class="fa fa-chevron-down"></i>
@@ -42,7 +42,7 @@
       <% else %>
         <div class="current-user">
 	  <a href="<%= root_path %>" class="name">
-	    <img class="avatar" src="images/avatars/1.jpg">
+	    <%= image_tag '/1.jpg', :class => 'avatar' %>
 	    <span>
 	      Vibe Tribe
 	      <i class="fa fa-chevron-down"></i>
