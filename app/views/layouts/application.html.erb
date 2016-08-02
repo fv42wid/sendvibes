@@ -8,10 +8,12 @@
     <%= csrf_meta_tags %>
   </head>
 
-<% if request.path == '/users/sign_up' || '/users/sign_in' %>
-<body id="signup" class="clear">
+<% if request.path == '/users/sign_up' || request.path == '/users/sign_in' %>
+  <body id="signup" class="clear">
+<% elsif request.path == '/causes' %>
+  <body id="projects">
 <% else %>
-<body id="dashboard">
+  <body id="dashboard">
 <% end %>
   <div id="wrapper">
     <div id="sidebar-default" class="main-sidebar">
@@ -209,11 +211,15 @@
 	<div class="page-title">
 	  <% if request.path == '/users/sign_up' %>
 	    Create Your Account Now
+	  <% elsif request.path == '/causes' %>
+	    Causes
 	  <% else %>
 	    Dashboard
 	  <% end %>
-	  </div>
-
+	</div>
+	<% if request.path == '/causes' && user_signed_in? %>
+	  <%= link_to 'New Cause', new_cause_path, :class => 'new-user btn btn-success pull-right' %>
+	<% end %>
 
       <div class="content-wrapper">
 	<%= yield %>
