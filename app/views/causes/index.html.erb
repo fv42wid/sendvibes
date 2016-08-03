@@ -1,31 +1,69 @@
 <p id="notice"><%= notice %></p>
+<div class="row page-controls">
+  <div class="col-md-12 filters">
+    <label>Filter Causes:</label>
+    <a href="#">All users (243)</a>
+    <a href="#">Active (3)</a>
+    <a href="#">Suspended (8)</a>
+    <div class="show-options">
+      <div class="dropdown">
+	<a class="button" data-toggle="dropdown" href="#">
+	  <span>Sort by <i class="fa fa-unsorted"></i></span>
+	</a>
+	<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+	  <li><a href="#">User</a></li>
+	  <li><a href="#">Cause Title</a></li>
+	</ul>
+      </div>
+      <a href="#" data-grid=".users-list" class="grid-view active">
+	<i class="fa fa-th-list"></i>
+      </a>
+      <a href="#" data-grid=".users-grid" class="grid-view">
+	<i class="fa fa-th"></i>
+      </a>
+    </div>
+  </div>
+</div> <!-- row -->
 
-<h1>Causes</h1>
+<div class="row users-list">
+  <div class="col-md-12">
+    <div class="row headers">
+      <div class="col-sm-2 header select_users">
+      
+      </div>
+      <div class="col-sm-3 header hidden-xs">
+	<label>
+	  <a href="#">User</a>
+	</label>
+      </div>
+      <div class="col-sm-3 header hidden-xs">
+	<label>
+	  <a href="#">Cause</a>
+	</label>
+      </div>
+      <div class="col-sm-4 header hidden-xs">
+	<label>
+	  <a href="#">Description</a>
+	</label>
+      </div>
+    </div> <!-- row headers -->
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @causes.each do |cause| %>
-      <tr>
-        <td><%= cause.user_id %></td>
-        <td><%= cause.title %></td>
-        <td><%= cause.description %></td>
-        <td><%= link_to 'Show', cause %></td>
-        <td><%= link_to 'Edit', edit_cause_path(cause) %></td>
-        <td><%= link_to 'Destroy', cause, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="row user">
+	<div class="col-sm-2 avatar">
+	  <input type="checkbox" name="select-user">
+	  <%= image_tag '/1.jpg' %>
+	</div>
+	<div class="col-sm-3">
+	  <a href="#" class="name"><%= cause.user.first_name %></a>
+	</div>
+	<div class="col-sm-3">
+	  <div class="email"><%= cause.title %></div>
+	</div>
+	<div class="col-sm-4">
+	  <div class="total-spent"><%= cause.description[0...40] %></div>
+	</div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Cause', new_cause_path %>
+  </div> <!-- col-md-12 -->
+</div> <!-- row -->

@@ -11,7 +11,7 @@
 <% if request.path == '/users/sign_up' || request.path == '/users/sign_in' %>
   <body id="signup" class="clear">
 <% elsif request.path == '/causes' %>
-  <body id="projects">
+  <body id="users">
 <% else %>
   <body id="dashboard">
 <% end %>
@@ -206,7 +206,7 @@
       <div class="menubar">
 	<div class="sidebar-toggler visible-xs">
 	  <i class="ion-navicon"></i>
-	  </div>
+	</div>
 
 	<div class="page-title">
 	  <% if request.path == '/users/sign_up' %>
@@ -218,11 +218,18 @@
 	  <% else %>
 	    Dashboard
 	  <% end %>
-	</div>
+	</div> <!-- page-title -->
+	<% if request.path == '/causes' %>
+	  <form class="search hidden-xs">
+	    <i class="fa fa-search"></i>
+	    <input type="text" name="q" placeholder="Search Causes">
+	    <input type="submit">
+	  </form>
+	<% end %>
 	<% if request.path == '/causes' && user_signed_in? %>
 	  <%= link_to 'New Cause', new_cause_path, :class => 'new-user btn btn-success pull-right' %>
 	<% end %>
-
+      </div>
       <div class="content-wrapper">
 	<%= yield %>
 
