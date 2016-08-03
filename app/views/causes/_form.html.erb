@@ -11,22 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.number_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+  <div class="fields">
+    <%= f.text_field :title, placeholder: "Title", :class => "form-control" %>
+    <%= f.text_area :description, placeholder: "Descrption", :class => "form-control" %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <button class="btn btn-default btn-lg" type="submit">Create Cause</button>
   </div>
 <% end %>

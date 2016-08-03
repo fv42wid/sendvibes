@@ -19,3 +19,7 @@
  *= require_tree ../../../vendor/assets/stylesheets/.
  *= require theme
  */
+
+.form-control {
+  margin-bottom: 10px;
+}

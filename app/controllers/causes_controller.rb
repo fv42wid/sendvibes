@@ -25,10 +25,10 @@ class CausesController < ApplicationController
   # POST /causes.json
   def create
     @cause = Cause.new(cause_params)
-
+    @cause.user_id = current_user.id
     respond_to do |format|
       if @cause.save
-        format.html { redirect_to @cause, notice: 'Cause was successfully created.' }
+        format.html { redirect_to causes_path, notice: 'Cause was successfully created.' }
         format.json { render :show, status: :created, location: @cause }
       else
         format.html { render :new }
@@ -69,6 +69,6 @@ class CausesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cause_params
-      params.require(:cause).permit(:user_id, :title, :description)
+      params.require(:cause).permit(:title, :description)
     end
 end
