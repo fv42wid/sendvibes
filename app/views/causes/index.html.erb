@@ -58,10 +58,10 @@
 	  <a href="#" class="name"><%= cause.user.first_name %></a>
 	</div>
 	<div class="col-sm-3">
-	  <div class="email"><%= cause.title %></div>
+	  <div><%= link_to cause.title, cause_path(cause), :class => 'name' %></div>
 	</div>
 	<div class="col-sm-4">
-	  <div class="total-spent"><%= cause.description[0...40] %></div>
+	  <div><%= link_to cause.description[0...40], cause_path(cause), :class => "name" %></div>
 	</div>
       </div>
     <% end %>
