@@ -1,1 +1,63 @@
-<%= @user.first_name %>
+<div class="profile-info">
+  <div class="avatar">
+    <%= image_tag '/1.jpg' %>
+    <div class="name">
+      <%= @user.first_name %> <%= @user.last_name %>
+    </div>
+  </div>
+  <div class="main-details clearfix">
+    <div class="col">
+      <div class="value">118</div>Causes
+    </div>
+    <div class="col">
+      <div class="value">3,125</div>Vibes
+    </div>
+  </div>
+</div> <!-- profile-info -->
+
+<div class="profile-content">
+  <div class="tabs">
+    <ul>
+      <li>
+	<a href="#" class="active">Wall</a>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div class="tab notes active">
+      <form>
+	<div class="editor clearfix">
+	  <textarea class="form-control form-control-textarea" rows="4" placeholder="Enter a new note..."></textarea>
+	  <div class="options clearfix">
+	    <button class="button" type="submit">
+	      <span>Submit Note</span>
+	    </button>
+	  </div>
+	</div>
+      </form>
+      <div class="filter clearfix">
+	<h4 class="pull-left">Recent Notes</h4>
+      </div>
+      <div class="comments">
+        <div class="row comment">
+	  <div class="col-sm-2">
+	    <%= image_tag '/1.jpg', :class => "avatar img-responsive" %>
+	  </div>
+	  <div class="col-sm-10">
+	    <div class="message clearfix">
+	      <header>
+		<span class="name">John Arnold</span>
+		<span class="date pull-right">2h ago</span>
+	      </header>
+	      <div class="note">
+		<p>
+		  I love making the stuff, that's sort of the core of it.  I love creating the stuff.  It's so satisfying to get from the beginning to the end, from a shaky nothing idea to something that's well formed and the audience really likes.
+		</p>
+              </div>
+	    </div>
+	  </div>
+	</div>
+      </div>
+    </div>
+  </div>
+</div> <!-- profile-content -->

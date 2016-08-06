@@ -12,6 +12,8 @@
   <body id="signup" class="clear">
 <% elsif request.path == '/causes' %>
   <body id="users">
+<% elsif request.path =~ /\/users\/[\d+]/ %>
+  <body id="user-profile">
 <% else %>
   <body id="dashboard">
 <% end %>
@@ -215,6 +217,8 @@
 	    Causes
 	  <% elsif request.path == '/causes/new' %>
 	    Create a Cause
+	  <% elsif request.path =~ /\/users\/[\d+]/ %>
+	    <%= @user.first_name %> <%= @user.last_name %>
 	  <% else %>
 	    Dashboard
 	  <% end %>
@@ -229,8 +233,11 @@
 	<% if request.path == '/causes' && user_signed_in? %>
 	  <%= link_to 'New Cause', new_cause_path, :class => 'new-user btn btn-success pull-right' %>
 	<% end %>
+	<% if request.path =~ /\/users\/[\d+]/ %>
+	  <a href="#" class="pull-right btn btn-primary">Edit user</a>
+	<% end %>
       </div>
-      <div class="content-wrapper">
+      <div class="content-wrapper<%= " clearfix" if request.path =~ /\/users\/[\d+]/ %>">
 	<%= yield %>
 
 
