@@ -220,7 +220,7 @@
 	  <% elsif request.path == '/causes/new' %>
 	    Create a Cause
 	  <% elsif request.path =~ /\/causes\/[\d+]/ %>
-	    <%= @cause.title %>
+	    <%= @cause.title %> <span class="label label-success">New</span>
 	  <% elsif request.path =~ /\/users\/[\d+]/ %>
 	    <%= @user.first_name %> <%= @user.last_name %>
 	  <% else %>
