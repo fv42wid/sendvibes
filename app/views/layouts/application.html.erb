@@ -12,6 +12,8 @@
   <body id="signup" class="clear">
 <% elsif request.path == '/causes' %>
   <body id="users">
+<% elsif request.path =~ /\/causes\/[\d+]/ %>
+  <body id="invoice">
 <% elsif request.path =~ /\/users\/[\d+]/ %>
   <body id="user-profile">
 <% else %>
@@ -217,6 +219,8 @@
 	    Causes
 	  <% elsif request.path == '/causes/new' %>
 	    Create a Cause
+	  <% elsif request.path =~ /\/causes\/[\d+]/ %>
+	    <%= @cause.title %>
 	  <% elsif request.path =~ /\/users\/[\d+]/ %>
 	    <%= @user.first_name %> <%= @user.last_name %>
 	  <% else %>
