@@ -10,6 +10,7 @@ class CausesController < ApplicationController
   # GET /causes/1
   # GET /causes/1.json
   def show
+    @vibe = Vibe.new
   end
 
   # GET /causes/new

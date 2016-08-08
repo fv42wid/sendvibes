@@ -20,12 +20,15 @@
       </div>
       <div class="row">
 	<div class="col-sm-12">
-	  <h2><%= time_ago_in_words(@cause.created_at) %> <small>ago</small></h3>
+	  <h3><%= time_ago_in_words(@cause.created_at) %> <small>ago</small></h3>
 	</div>
       </div>
       <div class="row">
 	<div class="col-sm-12">
-	  <button class="btn btn-success btn-lg">Support</button>
+	  <%= form_for(@vibe) do |f| %>
+	    <%= f.hidden_field :cause_id, value: @cause.id %>
+	    <button class="btn btn-success btn-lg" type="submit">Support</button>
+	  <% end %>
 	</div>
       </div>
     </div>

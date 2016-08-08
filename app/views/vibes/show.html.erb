@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @vibe.user_id %>
+</p>
+
+<p>
+  <strong>Cause:</strong>
+  <%= @vibe.cause_id %>
+</p>
+
+<%= link_to 'Edit', edit_vibe_path(@vibe) %> |
+<%= link_to 'Back', vibes_path %>
