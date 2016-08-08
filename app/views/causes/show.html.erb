@@ -25,16 +25,21 @@
       </div>
       <div class="row">
 	<div class="col-sm-12">
-	  <%= form_for(@vibe) do |f| %>
-	    <%= f.hidden_field :cause_id, value: @cause.id %>
-	    <button class="btn btn-success btn-lg" type="submit">Support</button>
+	  <% if user_signed_in? && current_user.vibes_cause?(@cause) %>
+	    <div class="alert alert-success" role="alert">
+	      You supported this cause!
+	    </div>
+	  <% else %>
+	    <%= form_for(@vibe) do |f| %>
+	      <%= f.hidden_field :cause_id, value: @cause.id %>
+	      <button class="btn btn-success btn-lg" type="submit">Support</button>
+	    <% end %>
 	  <% end %>
 	</div>
       </div>
     </div>
   </div>
 
-<%= link_to 'Edit', edit_cause_path(@cause) %> |
 <%= link_to 'Back', causes_path %>
 
 </div>
