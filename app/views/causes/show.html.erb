@@ -1,28 +1,35 @@
 <div class="invoice-wrapper">
   <p id="notice"><%= notice %></p>
-  <div class="well">
-    <%= @cause.description %>
-    <div class="row">
-      <div class="col-sm-10"></div>
-      <div class="col-sm-2">
-	- <%= @cause.user.first_name %> <%= @cause.user.last_name %>
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="well">
+	<%= @cause.description %>
+	<div class="row">
+	  <div class="col-sm-9"></div>
+	  <div class="col-sm-3">
+	    - <%= @cause.user.first_name %> <%= @cause.user.last_name %>
+	  </div>
+	</div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="row">
+	<div class="col-sm-12">
+	  <h3>2,759 <small>Vibes</small></h3>
+	</div>
+      </div>
+      <div class="row">
+	<div class="col-sm-12">
+	  <h2><%= time_ago_in_words(@cause.created_at) %> <small>ago</small></h3>
+	</div>
+      </div>
+      <div class="row">
+	<div class="col-sm-12">
+	  <button class="btn btn-success btn-lg">Support</button>
+	</div>
       </div>
     </div>
   </div>
-<p>
-  <strong>User:</strong>
-  <%= @cause.user_id %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @cause.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @cause.description %>
-</p>
 
 <%= link_to 'Edit', edit_cause_path(@cause) %> |
 <%= link_to 'Back', causes_path %>
