@@ -40,6 +40,22 @@
     </div>
   </div>
 
-<%= link_to 'Back', causes_path %>
+  <%= link_to 'Back', causes_path %>
+
+  <div class="tab notes active">
+    <div class="row">
+      <div class="col-sm-9">
+	<%= form_for(@comment) do |c| %>
+	  <%= c.hidden_field :cause, value: @cause.id %>
+	  <div class="editor cleafix">
+	    <%= c.text_area :body, placeholder: "Comment on this...", :class => "form-control form-control-textarea", rows: "4" %>
+	    <div class="options clearfix">
+	      <button class="button" type="submit"><span>Post</span></button>
+	    </div>
+	  </div>
+	<% end %>
+      </div>
+    </div>
+  </div>
 
 </div>
