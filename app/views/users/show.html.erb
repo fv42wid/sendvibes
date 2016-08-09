@@ -25,16 +25,7 @@
   </div>
   <div class="tab-content">
     <div class="tab notes active">
-      <form>
-	<div class="editor clearfix">
-	  <textarea class="form-control form-control-textarea" rows="4" placeholder="Enter a new note..."></textarea>
-	  <div class="options clearfix">
-	    <button class="button" type="submit">
-	      <span>Submit Note</span>
-	    </button>
-	  </div>
-	</div>
-      </form>
+      <%= render partial: "comments/form", locals: {commentable: @user} %>
       <div class="filter clearfix">
 	<h4 class="pull-left">Recent Notes</h4>
       </div>

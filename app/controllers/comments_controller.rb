@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to @commentable, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
-        format.html { render :new }
+        format.html { redirect_to @commentable, notice: 'Failure' }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end

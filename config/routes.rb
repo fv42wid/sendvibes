@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
   resources :vibes
-  devise_for :users do
-    resource :comments, module: :causes
+  devise_for :users
+  resources :users, :only => [:show] do
+    resource :comments, module: :users
   end
-  resources :users, :only => [:show]
   resources :causes do
     resource :comments, module: :causes
   end
