@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :causes
   has_many :vibes
+  has_many :comments
 
   def vibes_cause?(cause)
     cause.vibes.where(user_id: id).any?

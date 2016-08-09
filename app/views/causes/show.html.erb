@@ -46,7 +46,7 @@
     <div class="row">
       <div class="col-sm-9">
 	<%= form_for(@comment) do |c| %>
-	  <%= c.hidden_field :cause, value: @cause.id %>
+	  <%= c.hidden_field :commentable_id, value: @cause.id %>
 	  <div class="editor cleafix">
 	    <%= c.text_area :body, placeholder: "Comment on this...", :class => "form-control form-control-textarea", rows: "4" %>
 	    <div class="options clearfix">
