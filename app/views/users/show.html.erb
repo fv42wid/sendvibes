@@ -30,7 +30,7 @@
 	<h4 class="pull-left">Recent Notes</h4>
       </div>
       <div class="comments">
-	<% @user.comments.each do |comment| %>
+	<% @user.comments.last(10).reverse.each do |comment| %>
 	  <%= render partial: 'comments/comment', locals: {comment: comment} %>
 	<% end %>
         

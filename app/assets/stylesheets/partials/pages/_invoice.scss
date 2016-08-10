@@ -51,6 +51,58 @@
 			}
 		}
 		.invoice-wrapper {
+			.comments {
+				  margin-top: 60px;
+				  width: 94%;
+				  .comment {
+				  	   padding-bottom: 60px;
+					   position: relative;
+					   .avatar {
+					   	   max-width: 62px;
+						   border-radius: 5px;
+					   }
+					   .message {
+					   	    border: 1px solid #e4e4e4;
+						    border-radius: 4px;
+						    padding: 7px 20px;
+						    header {
+						    	   font-size: 13px;
+							   position: relative;
+							   color: #777;
+							   margin-top: 8px;
+							   &:before {
+							   	    content: '';
+								    position: absolute;
+								    display: block;
+								    width: 37px;
+								    height: 12px;
+								    top: 10px;
+								    left: -25px;
+								    margin-left: -18.5px;
+								    background-image: url("popover-arrow.png");
+								    background-size: 100% 100%;
+								    @include transform(rotate(270deg));
+								    @media (max-width: $maxSmall) {
+								    display: none;
+								    }
+							   }
+							   .name {
+							   	 font-weight: 600;
+								 display: inline-block;
+								 margin-right: 6px;
+								 color: #5481C4;
+							   }
+						    }
+						    .note {
+						    	  p {
+							    margin-top: 15px;
+							    margin-bottom: 15px;
+							    line-height: 23px;
+							  }
+						    }
+					   }
+				  }
+			}
 			.notes {
 			       .editor {
 			       	    width: 94%;
