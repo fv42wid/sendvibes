@@ -32,9 +32,14 @@
 	  <% else %>
 	    <%= form_for(@vibe) do |f| %>
 	      <%= f.hidden_field :cause_id, value: @cause.id %>
-	      <button class="btn btn-success btn-lg" type="submit">Support</button>
+	      <button class="btn btn-success btn-lg btn-block" type="submit">Support</button>
 	    <% end %>
 	  <% end %>
+	</div>
+      </div>
+      <div class="row">
+	<div class="col-sm-12">
+	  <a href="<%= new_sponsor_path %>" class="btn btn-default btn-lg btn-block">Sponsor</a>
 	</div>
       </div>
     </div>

@@ -6,6 +6,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tags %>
+    <%= tag :meta, name: "stripe-key", content: STRIPE_PUBLIC %>
   </head>
 
 <% if request.path == '/users/sign_up' || request.path == '/users/sign_in' %>
