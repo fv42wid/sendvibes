@@ -4,6 +4,8 @@
       <span class="payment-errors"></span>
 
       <div class="fields">    
+	<input type="hidden" name="cause_id" value="<%= @cause_id %>" >
+	<input type="hidden" name="type" value="<%= @type %>" >
 	<input type="text" data-stripe="number" class="form-control" placeholder="Card Number">    
 	<input type="text" size="2" data-stripe="exp_month" class="form-control" placeholder="Expiration Month MM">
 	<input type="text" size="2" data-stripe="exp_year" class="form-control" placeholder="Expiration Year YY">

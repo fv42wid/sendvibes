@@ -5,7 +5,8 @@ class SponsorsController < ApplicationController
   end
 
   def new
-
+    @cause_id = params[:chargeable][:cause_id]
+    @type = params[:chargeable][:type]
   end
 
   def create
@@ -23,7 +24,7 @@ class SponsorsController < ApplicationController
         :amount => 399,
         :currency => "usd",
         :source => params[:stripeToken],
-        :description => "Sponsoreship of Cause ###"
+        :description => "Sponsorship of Cause #{params[:cause_id]}"
       )
     rescue Stripe::CardError => e
       raise e
@@ -42,6 +43,25 @@ class SponsorsController < ApplicationController
     ) if params[:card_last_4]
     
     current_user.update(options)
+    @charge = Charge.new(
+      user_id: current_user.id,
+      chargeable_id: params[:cause_id],
+      chargeable_type: params[:type].capitalize,
+      description: "Sponsorship of cause #{params[:cause_id]}",
+      amount: 399,
+      currency: "usd",
+      stripe_charge_id: charge.id,
+      card_last_4: params[:card_last_4],
+      card_exp_month: params[:card_exp_month],
+      card_exp_year: params[:card_exp_year],
+      card_type: params[:card_brand]
+    )
+    @charge.save
     redirect_to root_path
+  end
+
+  private
+  def sponsor_params
+    params.require().permit(:cause_id, :type)
   end
 end
