@@ -14,14 +14,24 @@ class SponsorsController < ApplicationController
                else
                  Stripe::Customer.create(email: current_user.email)
                end
-    subscription = customer.subscriptions.create(
-      source: params[:stripeToken],
-      plan: "vibe_sponsor"                                           
-    )                     
+    #subscription = customer.subscriptions.create(
+    #  source: params[:stripeToken],
+    #  plan: "vibe_sponsor"                                           
+    #)                     
+    begin
+      charge = Stripe::Charge.create(
+        :amount => 399,
+        :currency => "usd",
+        :source => params[:stripeToken],
+        :description => "Sponsoreship of Cause ###"
+      )
+    rescue Stripe::CardError => e
+      raise e
+    end
 
     options = {
-      stripe_id: customer.id,
-      stripe_subscription_id: subscription.id
+      stripe_id: customer.id
+      #stripe_subscription_id: subscription.id
     }
 
     options.merge!(
