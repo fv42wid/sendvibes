@@ -1,0 +1,72 @@
+<%= form_for(charge) do |f| %>
+  <% if charge.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(charge.errors.count, "error") %> prohibited this charge from being saved:</h2>
+
+      <ul>
+      <% charge.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :chargeable_id %>
+    <%= f.number_field :chargeable_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :chargeable_type %>
+    <%= f.text_field :chargeable_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :amount %>
+    <%= f.number_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :currency %>
+    <%= f.text_field :currency %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stripe_charge_id %>
+    <%= f.text_field :stripe_charge_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :card_last_4 %>
+    <%= f.text_field :card_last_4 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :card_exp_month %>
+    <%= f.text_field :card_exp_month %>
+  </div>
+
+  <div class="field">
+    <%= f.label :card_exp_year %>
+    <%= f.text_field :card_exp_year %>
+  </div>
+
+  <div class="field">
+    <%= f.label :card_type %>
+    <%= f.text_field :card_type %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

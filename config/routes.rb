@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :charges
   resources :vibes
   devise_for :users
   resources :users, :only => [:show] do

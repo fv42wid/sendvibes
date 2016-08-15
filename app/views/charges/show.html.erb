@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @charge.user_id %>
+</p>
+
+<p>
+  <strong>Chargeable:</strong>
+  <%= @charge.chargeable_id %>
+</p>
+
+<p>
+  <strong>Chargeable type:</strong>
+  <%= @charge.chargeable_type %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @charge.description %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @charge.amount %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @charge.currency %>
+</p>
+
+<p>
+  <strong>Stripe charge:</strong>
+  <%= @charge.stripe_charge_id %>
+</p>
+
+<p>
+  <strong>Card last 4:</strong>
+  <%= @charge.card_last_4 %>
+</p>
+
+<p>
+  <strong>Card exp month:</strong>
+  <%= @charge.card_exp_month %>
+</p>
+
+<p>
+  <strong>Card exp year:</strong>
+  <%= @charge.card_exp_year %>
+</p>
+
+<p>
+  <strong>Card type:</strong>
+  <%= @charge.card_type %>
+</p>
+
+<%= link_to 'Edit', edit_charge_path(@charge) %> |
+<%= link_to 'Back', charges_path %>

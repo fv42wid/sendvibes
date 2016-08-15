@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  chargeable_id: 1
+  chargeable_type: MyString
+  description: MyString
+  amount: 1
+  currency: MyString
+  stripe_charge_id: MyString
+  card_last_4: MyString
+  card_exp_month: MyString
+  card_exp_year: MyString
+  card_type: MyString
+
+two:
+  user_id: 1
+  chargeable_id: 1
+  chargeable_type: MyString
+  description: MyString
+  amount: 1
+  currency: MyString
+  stripe_charge_id: MyString
+  card_last_4: MyString
+  card_exp_month: MyString
+  card_exp_year: MyString
+  card_type: MyString

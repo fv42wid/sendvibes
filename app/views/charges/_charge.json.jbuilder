@@ -1,0 +1,2 @@
+json.extract! charge, :id, :user_id, :chargeable_id, :chargeable_type, :description, :amount, :currency, :stripe_charge_id, :card_last_4, :card_exp_month, :card_exp_year, :card_type, :created_at, :updated_at
+json.url charge_url(charge, format: :json)
