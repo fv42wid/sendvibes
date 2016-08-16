@@ -15,6 +15,8 @@
   <body id="users">
 <% elsif request.path =~ /\/causes\/[\d+]/ %>
   <body id="invoice">
+<% elsif request.path =~ /\/sponsors\/[\d+]/ %>
+  <body id="invoice">
 <% elsif request.path =~ /\/users\/[\d+]/ %>
   <body id="user-profile">
 <% else %>
