@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :vibes
   has_many :comments
   has_many :comments, as: :commentable
+  has_many :charges
+  has_many :sponsors
 
   def vibes_cause?(cause)
     cause.vibes.where(user_id: id).any?

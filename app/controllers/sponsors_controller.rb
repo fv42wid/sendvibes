@@ -57,6 +57,7 @@ class SponsorsController < ApplicationController
       card_type: params[:card_brand]
     )
     @charge.save
+    current_user.sponsors.create(cause_id: params[:cause_id], charge_id: @charge.id)
     redirect_to root_path
   end
 
