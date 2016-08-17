@@ -22,6 +22,37 @@
       </div>
     </div> <!-- row -->
   </div>
+  <div class="payment-details">
+    <div class="row">
+      <div class="col-sm-6">
+	<span>Payment From</span>
+	<strong>
+	  <%= @sponsor.user.first_name %> <%= @sponsor.user.last_name %>
+	</strong>
+	<p>
+	  <%= link_to @sponsor.user.email, user_path(@sponsor.user) %>
+	</p>
+      </div>
+      <div class="com-sm-6 text-right">
+	<span>Payment To</span>
+	<strong>Vibe Tribe</strong>
+	<p>info@vibetribe.com</p>
+      </div>
+    </div> <!-- row -->
+  </div> 
+  <div class="line-items">
+    <div class="total text-right">
+      <div class="field">
+	Subtotal
+	<span>$<%= @sponsor.charge.amount.to_d / 100 %></span>
+      </div>
+      <div class="field grand-total">
+	Total
+	<span>$<%= @sponsor.charge.amount.to_d / 100 %></span>
+      </div>
+    </div>
+    
+  </div>
 </div>
 
 
